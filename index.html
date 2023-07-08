@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />z
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: rgb(67, 123, 186);
+            position: relative;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+        .heart{
+            font-size: 15rem;
+            animation: heart .5s alternate infinite linear;
+        }
+        @keyframes heart{
+            from{
+                transform:scale(.7);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        .title{
+            width: 100%;
+            text-align: center;
+        }
+        button{
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            background-color: rgb(49, 27, 137);
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        button:hover{
+            transform: scale(1.1);
+            color: aqua;
+        }
+        .title{
+            display: none;
+        }
+        .message{
+            background-color: rgb(255, 255, 255);
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+        }
+        .fa-solid{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size:20px;
+        }
+        .message{
+            display: none;
+        }
+        .main-message{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 600px;
+            height: 400px;
+            position: relative;
+        }
+        @media ( min-width:600px){
+            video{
+                width: 500px;
+                height: 400px;
+            }
+        }
+
+        @media ( max-width:600px){
+            .message{
+                width:350px ;
+                height: 300px;
+            }
+            .main-message{
+                width:350px ;
+                height: 300px;
+            }
+            video{
+                width: 300px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="main">
+    <div class="heart">💖</div>
+   </div>
+   <div id="set" class="title">
+    <button onclick="showTitle()">Nhấp vào đây đi</button>
+   </div>
+   <div id="icon" class="message">
+    <div class="main-message">
+        <i class="fa-solid fa-xmark" onclick="exit()"></i>
+        <video id="myVideo"  controls>
+            <source src="5859489964638201710.mp4" type="video/mp4">
+        </video>
+    </div>
+   </div>
+   <script>
+    function showTitle(){
+        var show = document.getElementById("icon")
+        show.style.display = "block"
+    }
+    function exit(){
+        var exitq = document.getElementById("icon")
+        exitq.style.display = "none"
+        var video = document.getElementById("myVideo")
+        video.pause();
+    }
+    setTimeout(function(){
+        var element = document.getElementById("set")
+        element.style.display = "block";
+    },3000);
+   </script>
+</body>
+</html>
